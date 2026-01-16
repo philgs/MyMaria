@@ -4,7 +4,6 @@ using MySql.Data.MySqlClient;
 
 namespace MyMaria
 {
-    [CmdletBinding]
     [Cmdlet(VerbsCommunications.Disconnect, "Database")]
     [Alias("dcmydb")]
     public class DisconnectDatabaseCommand : PSCmdlet

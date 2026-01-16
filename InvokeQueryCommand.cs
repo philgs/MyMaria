@@ -4,7 +4,6 @@ using MySql.Data.MySqlClient;
 
 namespace MyMaria
 {
-    [CmdletBinding]
     [Cmdlet(VerbsLifecycle.Invoke, "Query")]
     [Alias("imyqry")]
     public class InvokeQueryCommand : PSCmdlet

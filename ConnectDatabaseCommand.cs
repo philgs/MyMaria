@@ -4,7 +4,6 @@ using MySql.Data.MySqlClient;
 
 namespace MyMaria
 {
-    [CmdletBinding]
     [Cmdlet(VerbsCommunications.Connect, "Database")]
     [OutputType(typeof(MySqlConnection))]
     [Alias("cnmydb")]

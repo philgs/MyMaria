@@ -4,7 +4,6 @@ using MySql.Data.MySqlClient;
 
 namespace MyMaria
 {
-    [CmdletBinding]
     [Cmdlet(VerbsLifecycle.Invoke, "NonQuery")]
     [OutputType(typeof(int))]
     [Alias("imycmd")]
