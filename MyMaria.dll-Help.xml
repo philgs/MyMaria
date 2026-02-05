@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="utf-8"?>
+<helpItems schema="maml" xmlns="http://msh">
+  <!-- Connect-Database -->
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Connect-Database</command:name>
+      <command:verb>Connect</command:verb>
+      <command:noun>Database</command:noun>
+      <maml:description>
+        <maml:para>Establishes a connection to a MySQL/MariaDB database server.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Connect-Database cmdlet creates and opens a connection to a MySQL or MariaDB database server. The connection is stored in a module-scoped variable and can be used by other cmdlets in this module. The connection object is also returned to the pipeline.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Connect-Database</maml:name>
+        <command:parameter required="false" position="0" pipelineInput="false" globbing="false">
+          <maml:name>ComputerName</maml:name>
+          <command:parameterValue required="true">String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" position="named" pipelineInput="false" globbing="false">
+          <maml:name>Database</maml:name>
+          <command:parameterValue required="true">String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="true" position="named" pipelineInput="false" globbing="false">
+          <maml:name>Credential</maml:name>
+          <command:parameterValue required="true">PSCredential</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" position="named" pipelineInput="false" globbing="false">
+          <maml:name>Port</maml:name>
+          <command:parameterValue required="true">UInt32</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" position="named" pipelineInput="false" globbing="false">
+          <maml:name>CommandTimeout</maml:name>
+          <command:parameterValue required="true">UInt32</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" position="named" pipelineInput="false" globbing="false">
+          <maml:name>ConnectionTimeout</maml:name>
+          <command:parameterValue required="true">UInt32</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" position="0" pipelineInput="false" globbing="false">
+        <maml:name>ComputerName</maml:name>
+        <maml:description>
+          <maml:para>The hostname or IP address of the MySQL/MariaDB server. Defaults to "localhost".</maml:para>
+        </maml:description>
+        <command:parameterValue required="true">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>localhost</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" position="named" pipelineInput="false" globbing="false">
+        <maml:name>Database</maml:name>
+        <maml:description>
+          <maml:para>The name of the database to connect to. If not specified, no default database is selected.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" position="named" pipelineInput="false" globbing="false">
+        <maml:name>Credential</maml:name>
+        <maml:description>
+          <maml:para>The PSCredential object containing the username and password for database authentication. This parameter is required.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true">PSCredential</command:parameterValue>
+        <dev:type>
+          <maml:name>PSCredential</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" position="named" pipelineInput="false" globbing="false">
+        <maml:name>Port</maml:name>
+        <maml:description>
+          <maml:para>The TCP port number of the MySQL/MariaDB server. Valid range is 1-65535. Defaults to 3306.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true">UInt32</command:parameterValue>
+        <dev:type>
+          <maml:name>UInt32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>3306</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" position="named" pipelineInput="false" globbing="false">
+        <maml:name>CommandTimeout</maml:name>
+        <maml:description>
+          <maml:para>The default timeout in seconds for commands executed on this connection. Defaults to 60 seconds.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true">UInt32</command:parameterValue>
+        <dev:type>
+          <maml:name>UInt32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>60</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" position="named" pipelineInput="false" globbing="false">
+        <maml:name>ConnectionTimeout</maml:name>
+        <maml:description>
+          <maml:para>The timeout in seconds for establishing the connection. Defaults to 30 seconds.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true">UInt32</command:parameterValue>
+        <dev:type>
+          <maml:name>UInt32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>30</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para>This cmdlet does not accept pipeline input.</maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>MySql.Data.MySqlClient.MySqlConnection</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para>Returns the open MySqlConnection object.</maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>The connection is automatically stored in a module-scoped variable for use by other cmdlets. Use Disconnect-Database to close the connection when finished.</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>Example 1: Connect to a local MySQL server</maml:title>
+        <dev:code>$cred = Get-Credential
+Connect-Database -Credential $cred</dev:code>
+        <dev:remarks>
+          <maml:para>Connects to a MySQL server on localhost using the default port 3306.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>Example 2: Connect to a remote server with a specific database</maml:title>
+        <dev:code>$cred = Get-Credential
+Connect-Database -ComputerName "db.example.com" -Database "myapp" -Credential $cred -Port 3307</dev:code>
+        <dev:remarks>
+          <maml:para>Connects to a remote MySQL server on a non-standard port and selects the "myapp" database.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>Example 3: Connect using the alias</maml:title>
+        <dev:code>$cred = Get-Credential
+cnmydb -Server "192.168.1.100" -Credential $cred</dev:code>
+        <dev:remarks>
+          <maml:para>Uses the cnmydb alias and the Server parameter alias to connect to a database server.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Disconnect-Database</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Invoke-Query</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Invoke-NonQuery</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+
+  <!-- Disconnect-Database -->
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Disconnect-Database</command:name>
+      <command:verb>Disconnect</command:verb>
+      <command:noun>Database</command:noun>
+      <maml:description>
+        <maml:para>Closes and disposes an existing MySQL/MariaDB database connection.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Disconnect-Database cmdlet closes an open MySQL or MariaDB database connection and disposes of the connection object. If no connection is specified, it closes the connection stored in the module-scoped variable created by Connect-Database.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Disconnect-Database</maml:name>
+        <command:parameter required="false" position="0" pipelineInput="true (ByValue)" globbing="false">
+          <maml:name>Connection</maml:name>
+          <command:parameterValue required="true">MySqlConnection</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" position="0" pipelineInput="true (ByValue)" globbing="false">
+        <maml:name>Connection</maml:name>
+        <maml:description>
+          <maml:para>The MySqlConnection object to close. If not specified, the cmdlet uses the connection stored by Connect-Database.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true">MySqlConnection</command:parameterValue>
+        <dev:type>
+          <maml:name>MySql.Data.MySqlClient.MySqlConnection</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>MySql.Data.MySqlClient.MySqlConnection</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para>You can pipe a MySqlConnection object to this cmdlet.</maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para>This cmdlet does not return any output.</maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>Always disconnect from the database when you are finished to free up server resources and prevent connection leaks.</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>Example 1: Disconnect the current session</maml:title>
+        <dev:code>Disconnect-Database</dev:code>
+        <dev:remarks>
+          <maml:para>Closes the connection established by Connect-Database.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>Example 2: Disconnect a specific connection</maml:title>
+        <dev:code>$conn = Connect-Database -Credential $cred
+# ... do work ...
+Disconnect-Database -Connection $conn</dev:code>
+        <dev:remarks>
+          <maml:para>Explicitly disconnects a specific connection object.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>Example 3: Disconnect using pipeline</maml:title>
+        <dev:code>$conn | Disconnect-Database</dev:code>
+        <dev:remarks>
+          <maml:para>Pipes a connection object to Disconnect-Database.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>Example 4: Use the alias</maml:title>
+        <dev:code>dcmydb</dev:code>
+        <dev:remarks>
+          <maml:para>Uses the dcmydb alias to disconnect from the database.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Connect-Database</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+
+  <!-- Invoke-NonQuery -->
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Invoke-NonQuery</command:name>
+      <command:verb>Invoke</command:verb>
+      <command:noun>NonQuery</command:noun>
+      <maml:description>
+        <maml:para>Executes a SQL statement that does not return a result set.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Invoke-NonQuery cmdlet executes SQL statements that do not return data, such as INSERT, UPDATE, DELETE, CREATE, ALTER, and DROP statements. It returns the number of rows affected by the command.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Invoke-NonQuery</maml:name>
+        <command:parameter required="true" position="0" pipelineInput="true (ByValue)" globbing="false">
+          <maml:name>Query</maml:name>
+          <command:parameterValue required="true">String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" position="named" pipelineInput="false" globbing="false">
+          <maml:name>Connection</maml:name>
+          <command:parameterValue required="true">MySqlConnection</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" position="named" pipelineInput="false" globbing="false">
+          <maml:name>CommandTimeout</maml:name>
+          <command:parameterValue required="true">Int32</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" position="0" pipelineInput="true (ByValue)" globbing="false">
+        <maml:name>Query</maml:name>
+        <maml:description>
+          <maml:para>The SQL statement to execute. This should be a non-query statement such as INSERT, UPDATE, DELETE, CREATE, ALTER, or DROP.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" position="named" pipelineInput="false" globbing="false">
+        <maml:name>Connection</maml:name>
+        <maml:description>
+          <maml:para>The MySqlConnection object to use for executing the command. If not specified, the cmdlet uses the connection stored by Connect-Database.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true">MySqlConnection</command:parameterValue>
+        <dev:type>
+          <maml:name>MySql.Data.MySqlClient.MySqlConnection</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" position="named" pipelineInput="false" globbing="false">
+        <maml:name>CommandTimeout</maml:name>
+        <maml:description>
+          <maml:para>The timeout in seconds for command execution. Defaults to 30 seconds.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>30</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para>You can pipe a SQL query string to this cmdlet.</maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Int32</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para>Returns the number of rows affected by the SQL statement.</maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>A connection must be established using Connect-Database before using this cmdlet, or you must provide a connection via the Connection parameter.</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>Example 1: Insert a new record</maml:title>
+        <dev:code>Invoke-NonQuery -Query "INSERT INTO users (name, email) VALUES ('John', 'john@example.com')"</dev:code>
+        <dev:remarks>
+          <maml:para>Inserts a new record into the users table and returns 1 (rows affected).</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>Example 2: Update records</maml:title>
+        <dev:code>$affected = Invoke-NonQuery "UPDATE products SET price = price * 1.1 WHERE category = 'electronics'"
+Write-Host "Updated $affected products"</dev:code>
+        <dev:remarks>
+          <maml:para>Updates prices for all electronics and captures the number of affected rows.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>Example 3: Delete records with a longer timeout</maml:title>
+        <dev:code>Invoke-NonQuery -Query "DELETE FROM logs WHERE created_at &lt; '2023-01-01'" -CommandTimeout 120</dev:code>
+        <dev:remarks>
+          <maml:para>Deletes old log records with a 2-minute timeout for the operation.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>Example 4: Create a table</maml:title>
+        <dev:code>Invoke-NonQuery "CREATE TABLE IF NOT EXISTS audit_log (id INT AUTO_INCREMENT PRIMARY KEY, action VARCHAR(255), timestamp DATETIME)"</dev:code>
+        <dev:remarks>
+          <maml:para>Creates a new table in the database.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>Example 5: Use the alias</maml:title>
+        <dev:code>imycmd "TRUNCATE TABLE temp_data"</dev:code>
+        <dev:remarks>
+          <maml:para>Uses the imycmd alias to truncate a table.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Connect-Database</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Invoke-Query</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Disconnect-Database</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+
+  <!-- Invoke-Query -->
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Invoke-Query</command:name>
+      <command:verb>Invoke</command:verb>
+      <command:noun>Query</command:noun>
+      <maml:description>
+        <maml:para>Executes a SQL query and returns the result set.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Invoke-Query cmdlet executes a SQL SELECT statement or other query that returns a result set. Each row is returned as a PSObject with properties corresponding to the column names in the result set.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Invoke-Query</maml:name>
+        <command:parameter required="true" position="0" pipelineInput="true (ByValue)" globbing="false">
+          <maml:name>Query</maml:name>
+          <command:parameterValue required="true">String</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" position="named" pipelineInput="false" globbing="false">
+          <maml:name>Connection</maml:name>
+          <command:parameterValue required="true">MySqlConnection</command:parameterValue>
+        </command:parameter>
+        <command:parameter required="false" position="named" pipelineInput="false" globbing="false">
+          <maml:name>CommandTimeout</maml:name>
+          <command:parameterValue required="true">Int32</command:parameterValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" position="0" pipelineInput="true (ByValue)" globbing="false">
+        <maml:name>Query</maml:name>
+        <maml:description>
+          <maml:para>The SQL SELECT statement or other query to execute that returns a result set.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" position="named" pipelineInput="false" globbing="false">
+        <maml:name>Connection</maml:name>
+        <maml:description>
+          <maml:para>The MySqlConnection object to use for executing the query. If not specified, the cmdlet uses the connection stored by Connect-Database.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true">MySqlConnection</command:parameterValue>
+        <dev:type>
+          <maml:name>MySql.Data.MySqlClient.MySqlConnection</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" position="named" pipelineInput="false" globbing="false">
+        <maml:name>CommandTimeout</maml:name>
+        <maml:description>
+          <maml:para>The timeout in seconds for query execution. Defaults to 30 seconds.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>30</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para>You can pipe a SQL query string to this cmdlet.</maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Management.Automation.PSObject</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para>Returns one PSObject for each row in the result set. Each object has properties corresponding to the column names.</maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>A connection must be established using Connect-Database before using this cmdlet, or you must provide a connection via the Connection parameter. NULL values in the database are returned as $null in PowerShell.</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>Example 1: Select all records from a table</maml:title>
+        <dev:code>Invoke-Query -Query "SELECT * FROM users"</dev:code>
+        <dev:remarks>
+          <maml:para>Retrieves all records from the users table.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>Example 2: Filter and format results</maml:title>
+        <dev:code>Invoke-Query "SELECT name, email FROM users WHERE active = 1" | Format-Table</dev:code>
+        <dev:remarks>
+          <maml:para>Retrieves active users and displays them in a table format.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>Example 3: Export query results to CSV</maml:title>
+        <dev:code>Invoke-Query "SELECT * FROM orders WHERE order_date &gt; '2024-01-01'" | Export-Csv -Path orders.csv -NoTypeInformation</dev:code>
+        <dev:remarks>
+          <maml:para>Exports query results to a CSV file.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>Example 4: Use with a specific connection and timeout</maml:title>
+        <dev:code>$results = Invoke-Query -Query "SELECT * FROM large_table" -Connection $conn -CommandTimeout 300</dev:code>
+        <dev:remarks>
+          <maml:para>Executes a query on a specific connection with a 5-minute timeout.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>Example 5: Pipeline query strings</maml:title>
+        <dev:code>"SELECT COUNT(*) AS Total FROM users" | Invoke-Query</dev:code>
+        <dev:remarks>
+          <maml:para>Pipes a query string to the cmdlet.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>Example 6: Use the alias</maml:title>
+        <dev:code>imyqry "SHOW TABLES"</dev:code>
+        <dev:remarks>
+          <maml:para>Uses the imyqry alias to list all tables in the current database.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Connect-Database</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Invoke-NonQuery</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Disconnect-Database</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+</helpItems>
